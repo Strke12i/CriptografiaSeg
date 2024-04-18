@@ -1,5 +1,3 @@
-// gcc -ansi -Wall .\cifraVigenere.c    
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,9 +12,9 @@ void vigenere(char *chave, char *plainText){
     for (i = 0; i < lenPlainText; i++)
     {
         if(isalpha(plainText[i])){
-            char c = plainText[i];
-            char k = chave[i % lenChave];
-            int offset = isupper(c) ? 'A' : 'a';
+            char c = toupper(plainText[i]);
+            char k = toupper(chave[i % lenChave]);
+            int offset = 'A';
 
             cipherText[i] = (c - offset + k - offset) % 26 + offset;
         }else{
